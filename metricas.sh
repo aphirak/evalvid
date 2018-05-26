@@ -1,21 +1,18 @@
 #!/bin/bash
 
 here=$(pwd)
-video_st="st_container_cif_h264_300_20.st"
-video_yuv="container_cif_h264_300_20"
+#video_st="st_container_cif_h264_300_20.st"
+#video_yuv="container_cif_h264_300_20"
 
 #video_st="st_highway_cif.st"
 #video_yuv="highway_cif"
 
-<<<<<<< HEAD
 #video_st="st_highway_600_cif"
 #video_yuv="highway_600_cif"
 
-#video_st="st_akiyo_cif_h264_300_18"
-#video_yuv="akiyo_cif_h264_300_20"
+video_st="st_akiyo_cif_h264_300_18"
+video_yuv="akiyo_cif_h264_300_20"
 
-=======
->>>>>>> 182d7705ac81b50005389cd1861b81b044429519
 echo "use: sh metricas.sh [directory] [list of simulations] [number of simulations]"
 
 echo
