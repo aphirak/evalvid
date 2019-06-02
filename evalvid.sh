@@ -19,8 +19,6 @@ if [ $duration != 0 ]
 then
 	ffmpeg -y -ss 00:00:00.0 -i $1 -c copy -t 00:0${duration}:00.0 cut_$name.mp4
 	ffmpeg -y -i cut_$name.mp4 $name.yuv
-  touch if
-
 else
 	ffmpeg -y -i $name.mp4 $name.yuv
 fi
