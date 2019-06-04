@@ -61,15 +61,14 @@ fi
 
 for i in $1; do
 	for k in $(seq 1 $2); do
-		cp $i/simul$k/rd* $i/simul$k/sd* "$here"
+		cp $i/simul$k/rd* $i/simul$k/sd* .
 		for y in $(seq 0 $3); do
-			 etmp4 -F -0 sd_a01_$y rd_a01_$y "traces/$video_st" "reference_videos/$video_yuv.mp4" Video$y
+			 ./etmp4 -F -0 sd_a01_$y rd_a01_$y "traces/$video_st" "reference_videos/$video_yuv.mp4" Video$y
 			 ffmpeg -i Video$y.mp4 Video$y.yuv
 			 wine msu_metric.exe -f reference_videos/$video_yuv.yuv IYUV -yw $xres -yh $yres -f Video$y.yuv -sc 1 -cod . -metr ssim_precise -cc YYUV
 			 wine msu_metric.exe -f reference_videos/$video_yuv.yuv IYUV -yw $xres -yh $yres -f Video$y.yuv -sc 1 -cod . -metr vqm -cc YYUV
 			 mv reference_videos/*csv loss* delay* rate* Video*.mp4  $i/simul$k/
              rm *.yuv
 		done
-
 	done
 done
